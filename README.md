@@ -11,7 +11,21 @@ All code has been written by Doby.
 * Author: Doby
 </b></i>
 
-![alt text](image.png)
+## Architecture
+### 1. Architecture
+![alt text](image-1.png)
+
+### 2. Weight Initialization
+```
+No Initialization (Random, torch.empty)
+Accuracy: 97.19%, Test Loss: 0.0929
+
+Weight Initialization (Gaussian Distribution)
+Accuracy: 95.17%, Test Loss: 0.1534
+
+Weight Initialization (Xavier)
+Accuracy: 97.66%, Test Loss: 0.0770
+```
 
 ## Usage
 ### Download Repository
@@ -47,3 +61,6 @@ python main.py --mode=train --epochs=1 --lr=1e-4 --batch_size=16 --device=cpu --
 
 python main.py --mode=inference --device=cpu --file_name=trained_1epoch_convnet.pt --index=0
 ```
+
+## Example
+![alt text](image.png)

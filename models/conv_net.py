@@ -26,6 +26,15 @@ class ConvNet(nn.Module):
         self.l2 = nn.Linear(100, 10)
         self.acti = nn.GELU()
         
+        # Apply Weight Initialization Recursively
+        self.apply(self._init_weights)
+    
+    def _init_weights(self, m):
+        # Weight initialization using Xavier Uniform
+        if isinstance(m, (nn.Linear, nn.Conv2d)):
+            nn.init.xavier_uniform_(m.weight)
+            m.bias.data.fill_(0.01)
+    
     def forward(self, x):
         x = self.conv_blk1(x)
         x = self.pool(x)
