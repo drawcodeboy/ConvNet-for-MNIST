@@ -24,7 +24,7 @@ class CustomDataset(Dataset):
         data = self.df.iloc[index].to_numpy()
         
         label = data[0]
-        sample = data[1:].reshape(28, 28).astype(np.float32)
+        sample = data[1:].reshape(1, 28, 28).astype(np.float32)
         
         # Normalize
         sample /= 255.0
