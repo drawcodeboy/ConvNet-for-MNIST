@@ -4,12 +4,6 @@ from torch import optim
 from torch.utils.data import DataLoader
 import torch.nn.functional as F
 
-from models.conv_net import ConvNet
-from data_loader.data_loader import CustomDataset
-
-import pandas as pd
-import sys
-
 def train_one_epoch(model: nn.Module, loss_fn: nn.Module, optimizer: optim.Optimizer,
                     data_loader: DataLoader, device: torch.device, epoch: int, epochs: int):
     
@@ -63,13 +57,3 @@ def evaluate(model: nn.Module, loss_fn: nn.Module, data_loader: DataLoader,
     
     print()
     print(f"Accuracy: {100*correct_num/total_num:.2f}%, Test Loss: {total_loss/len(data_loader):.4f}")
-
-
-if __name__ == '__main__':
-    model = ConvNet()
-    ds = CustomDataset(pd.read_csv('data\mnist.csv'))
-    dl = DataLoader(ds, batch_size=32, shuffle=True)
-    loss_fn = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=1e-3)
-    train_one_epoch(model, loss_fn, optimizer, dl, 'cpu', 1)
-    evaluate(model, loss_fn, dl, 'cpu')
