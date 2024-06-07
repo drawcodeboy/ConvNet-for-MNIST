@@ -32,7 +32,7 @@ class ConvNet(nn.Module):
     def _init_weights(self, m):
         # Weight initialization using Xavier Uniform
         if isinstance(m, (nn.Linear, nn.Conv2d)):
-            nn.init.xavier_uniform_(m.weight)
+            nn.init.xavier_uniform_(m.weight.data)
             m.bias.data.fill_(0.01)
     
     def forward(self, x):
