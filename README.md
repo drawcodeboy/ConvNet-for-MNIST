@@ -6,7 +6,7 @@ All code has been written by Doby.
 ## Description
 <b><i>
 * MNIST Classification using Convolutional Network
-* Motivation: 나는 코드를 짤 수 있는 사람일까
+* Motivation: --
 * Project Duration: 24/06/06 15:35~19:20 (3H 45M)
 * Author: Doby
 </b></i>
